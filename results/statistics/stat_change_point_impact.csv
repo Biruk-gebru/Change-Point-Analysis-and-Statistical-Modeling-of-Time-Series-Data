@@ -1,0 +1,11 @@
+Metric,Value
+Change Point Date,2018-11-12
+Date Lower CI (2.5%),2018-11-01
+Date Upper CI (97.5%),2019-09-11
+Mean Before,-0.000316
+Mean After,0.000413
+Mean Change,0.000729
+Prob(Mean Increased),0.6783
+Volatility Before,0.019135
+Volatility After,0.043549
+Volatility Change (%),127.58%
