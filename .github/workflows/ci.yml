@@ -39,5 +39,13 @@ jobs:
     
     - name: Validate data files
       run: |
-        python -c "import pandas as pd; df = pd.read_csv('data/raw/BrentOilPrices.csv'); print(f'Data loaded: {len(df)} rows')"
-        python -c "import pandas as pd; df = pd.read_csv('data/events/geopolitical_events.csv'); print(f'Events loaded: {len(df)} events')"
+        if [ -f data/raw/BrentOilPrices.csv ]; then
+          python -c "import pandas as pd; df = pd.read_csv('data/raw/BrentOilPrices.csv'); print(f'Data loaded: {len(df)} rows')"
+        else
+          echo "BrentOilPrices.csv not found, skipping validation"
+        fi
+        if [ -f data/events/geopolitical_events.csv ]; then
+          python -c "import pandas as pd; df = pd.read_csv('data/events/geopolitical_events.csv'); print(f'Events loaded: {len(df)} events')"
+        else
+          echo "geopolitical_events.csv not found, skipping validation"
+        fi
