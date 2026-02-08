@@ -1,0 +1,5 @@
+Test,Statistic,P_Value,Conclusion
+ADF (Price),-2.2197276037341402,0.199163540051642,Non-stationary
+ADF (Returns),-8.973435954154434,7.643976764387857e-15,Stationary
+KPSS (Price),2.3788288319994657,0.01,Non-stationary
+KPSS (Returns),0.1209683187731061,0.1,Stationary
