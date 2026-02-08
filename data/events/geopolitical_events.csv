@@ -6,6 +6,7 @@ Date,Event,Category,Description,Expected_Impact
 2016-11-30,OPEC Production Cut Agreement,OPEC Policy,OPEC agrees to first production cut since 2008 (1.2M barrels/day) to support prices,Positive (price increase due to supply reduction)
 2018-05-08,US Withdraws from Iran Nuclear Deal,Sanctions,US reimmposes sanctions on Iranian oil exports removing ~2M barrels/day from market,Positive (price increase due to supply reduction)
 2018-11-01,US Grants Iran Sanctions Waivers,Sanctions,US grants temporary waivers to 8 countries to continue importing Iranian oil reducing supply impact,Negative (price decrease due to continued supply)
+2019-05-02,US Ends Iran Sanctions Waivers,Sanctions,US ends all waivers for Iranian oil importers aiming to bring Iran's exports to zero,Positive (price support due to supply tightness)
 2020-03-06,Saudi-Russia Oil Price War,OPEC Policy,Saudi Arabia and Russia fail to agree on production cuts; Saudi increases production and offers discounts,Negative (severe price crash)
 2020-03-11,COVID-19 Pandemic Declaration,Economic Shock,WHO declares COVID-19 pandemic; global lockdowns devastate oil demand,Negative (historic demand destruction)
 2020-04-12,OPEC+ Historic Production Cut,OPEC Policy,OPEC+ agrees to record 9.7M barrel/day production cut to stabilize collapsing prices,Positive (price recovery support)
