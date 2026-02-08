@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Bayesian Change Point Detection for Brent Oil Prices
 Task 2: Change Point Modeling and Insight Generation
