@@ -8,8 +8,10 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
     
-    # Register blueprints here when ready
-    # from .routes import api_bp
-    # app.register_blueprint(api_bp)
+
+    # Register blueprints
+    from .routes import api_bp
+    app.register_blueprint(api_bp)
     
     return app
+
