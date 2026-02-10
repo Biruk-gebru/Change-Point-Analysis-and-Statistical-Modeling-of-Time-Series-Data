@@ -151,7 +151,7 @@ Our Bayesian analysis identified a significant structural change point in early 
 - **Model Efficacy**: The Bayesian model successfully "priced in" the shock approximately 20 days before the official waiver expiration.
 
 ## Dashboard Preview
-![Birhan Energies Dashboard](/home/karanos/kiam/week11/prod/results/figures/birhanDash.png)
+![Birhan Energies Dashboard](results/figures/birhanDash.png)
 
 ## License
 This project is part of the 10 Academy KAIM Week 11 Challenge.
