@@ -54,17 +54,45 @@ This project analyzes how major political and economic events affect Brent oil p
 - Written interpretation of results with quantified impacts
 
 ### Task 3: Developing Interactive Dashboard
-- [x] Flask backend with REST APIs for data serving
-- [x] React frontend with interactive visualizations
-- [x] Event correlation and drill-down capabilities
-- [x] Responsive design for multiple devices
+- [x] **Interactive Price Charts**: Dynamic Recharts implementation with date-range filters (1Y, 5Y, All).
+- [x] **Regime Shift Overlays**: Change point markers automatically overlaid on historical price data.
+- [x] **Event Correlation**: Visual links between price shocks and documented geopolitical events.
+- [x] **Responsive UI**: Optimized for all screen sizes using Tailwind CSS grid and flexbox.
 
-**Deliverables**:
-- Working Flask backend with documented API endpoints
-- React frontend with interactive visualizations
-- **Dashboard Preview**:
-![Dashboard Screenshot](/home/karanos/kiam/week11/prod/results/figures/birihandahsboard.png)
-- Setup instructions
+#### Dashboard Features & Views:
+1. **Analytics View (Main)**:
+   - **Trend Chart**: Visualizes the last 10+ years of Brent oil prices.
+   - **Date Range Controls**: Toggle between 1-year, 5-year, and full dataset views.
+   - **Change Point Markers**: Red dashed line indicating the model's most probable regime shift date.
+2. **Event Timeline (Sidebar)**:
+   - **Categorized Events**: Scrollable list of 15 major events (Conflict, Sanctions, OPEC).
+   - **Date Sync**: Each event displays the precise date, category, and historical context.
+3. **KPI Cards**:
+   - **Volatility Shift**: Quantified % change in market volatility after the detected change point.
+   - **Mean Change**: Shift in average price returns observed after the event.
+
+#### Responsiveness Behavior:
+- **Desktop**: 12-column grid with a 3:1 ratio between the chart and the event sidebar.
+- **Tablet/Mobile**: Single-column vertical layout where the sidebar drops below the chart for optimal readability on touch devices.
+- **Dynamic Sizing**: Charts utilize `ResponsiveContainer` to adapt height and width fluidly.
+
+### Setup & Execution
+
+#### 1. Backend API (Flask)
+```bash
+cd backend
+pip install -r ../requirements.txt
+python3 run.py
+```
+*API serves on localhost:5000*
+
+#### 2. Frontend Dashboard (React)
+```bash
+cd frontend
+npm install
+npm start
+```
+*Dashboard serves on localhost:3000*
 
 
 ## Technology Stack
@@ -123,7 +151,7 @@ Our Bayesian analysis identified a significant structural change point in early 
 - **Model Efficacy**: The Bayesian model successfully "priced in" the shock approximately 20 days before the official waiver expiration.
 
 ## Dashboard Preview
-![Birhan Energies Dashboard](results/figures/birihandahsboard.png)
+![Birhan Energies Dashboard](/home/karanos/kiam/week11/prod/results/figures/birhanDash.png)
 
 ## License
 This project is part of the 10 Academy KAIM Week 11 Challenge.

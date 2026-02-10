@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     LineChart,
     Line,
@@ -12,8 +12,20 @@ import {
 } from 'recharts';
 
 const PriceChart = ({ data, events, changePoint }) => {
-    // Filter data to last 10 years for better visualization
-    const recentData = data.slice(-2520); // ~10 years of trading days
+    const [timeRange, setTimeRange] = useState('All');
+
+    // Filter data based on selected time range
+    const getFilteredData = () => {
+        if (!data || data.length === 0) return [];
+
+        // Total data is already filtered/sorted in App or Service
+        // We treat the current data as the 'Full' set for the analysis period
+        if (timeRange === '1Y') return data.slice(-252);
+        if (timeRange === '5Y') return data.slice(-1260);
+        return data;
+    };
+
+    const filteredData = getFilteredData();
 
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
@@ -31,16 +43,32 @@ const PriceChart = ({ data, events, changePoint }) => {
 
     return (
         <div className="w-full">
-            <div className="mb-4">
-                <h2 className="text-2xl font-bold text-foreground">Brent Crude Price Analysis</h2>
-                <p className="text-sm text-muted-foreground mt-1">
-                    Historical price trends with detected regime shifts and geopolitical events
-                </p>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <h2 className="text-2xl font-bold text-foreground">Brent Crude Price Analysis</h2>
+                    <p className="text-sm text-muted-foreground mt-1">
+                        Historical price trends with detected regime shifts and geopolitical events
+                    </p>
+                </div>
+                <div className="flex gap-2 bg-secondary/50 p-1 rounded-lg border border-border">
+                    {['1Y', '5Y', 'All'].map((range) => (
+                        <button
+                            key={range}
+                            onClick={() => setTimeRange(range)}
+                            className={`px-4 py-1.5 text-xs font-medium rounded-md transition-all ${timeRange === range
+                                ? 'bg-primary text-primary-foreground shadow-sm'
+                                : 'text-muted-foreground hover:text-foreground'
+                                }`}
+                        >
+                            {range}
+                        </button>
+                    ))}
+                </div>
             </div>
 
             <ResponsiveContainer width="100%" height={500}>
                 <LineChart
-                    data={recentData}
+                    data={filteredData}
                     margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
                 >
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(240 3.7% 15.9%)" />
