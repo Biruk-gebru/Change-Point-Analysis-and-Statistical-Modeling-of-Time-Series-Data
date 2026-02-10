@@ -1,0 +1,13 @@
+/* This file is intentionally minimal as we're using Tailwind CSS */
+
+.recharts-wrapper {
+  font-family: inherit;
+}
+
+.custom-tooltip {
+  background-color: hsl(240 10% 3.9%);
+  border: 1px solid hsl(240 3.7% 15.9%);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
