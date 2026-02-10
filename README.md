@@ -54,16 +54,18 @@ This project analyzes how major political and economic events affect Brent oil p
 - Written interpretation of results with quantified impacts
 
 ### Task 3: Developing Interactive Dashboard
-- Flask backend with REST APIs for data serving
-- React frontend with interactive visualizations
-- Event correlation and drill-down capabilities
-- Responsive design for multiple devices
+- [x] Flask backend with REST APIs for data serving
+- [x] React frontend with interactive visualizations
+- [x] Event correlation and drill-down capabilities
+- [x] Responsive design for multiple devices
 
 **Deliverables**:
 - Working Flask backend with documented API endpoints
 - React frontend with interactive visualizations
-- Screenshots demonstrating dashboard functionality
+- **Dashboard Preview**:
+![Dashboard Screenshot](/home/karanos/kiam/week11/prod/results/figures/birihandahsboard.png)
 - Setup instructions
+
 
 ## Technology Stack
 - **Analysis**: Python, PyMC, Pandas, NumPy, Matplotlib
@@ -71,22 +73,58 @@ This project analyzes how major political and economic events affect Brent oil p
 - **Frontend**: React, Recharts/D3.js
 - **Statistical Methods**: Bayesian inference, MCMC sampling
 
-## Getting Started
+## Installation & Setup
 
-### Prerequisites
-- Python 3.8+
-- Node.js 14+
-- npm or yarn
+### Backend (Flask API)
+1. **Navigate to backend directory**:
+   ```bash
+   cd backend
+   ```
+2. **Install dependencies**:
+   ```bash
+   pip install -r ../requirements.txt
+   ```
+3. **Run the server**:
+   ```bash
+   python3 run.py
+   ```
+   The API will be available at `http://127.0.0.1:5000/api`.
 
-### Installation
-(Instructions to be added)
+### Frontend (React Dashboard)
+1. **Navigate to frontend directory**:
+   ```bash
+   cd frontend
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the dashboard**:
+   ```bash
+   npm start
+   ```
+   The dashboard will open at `http://localhost:3000`.
 
-## Key Dates
-- **Interim Submission**: Sunday, 08 Feb 2026, 8:00 PM UTC (Task 1)
-- **Final Submission**: Tuesday, 10 Feb 2026, 8:00 PM UTC (Tasks 1-3)
+## API Documentation
 
-## References
-See [docs/references.md](docs/references.md) for a complete list of references.
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/api/prices` | GET | Returns historical Brent oil prices (Date, Price) |
+| `/api/events` | GET | Returns curated geopolitical events with categories and descriptions |
+| `/api/changepoint` | GET | Returns summary of the detected regime shift and its quantified impact |
+| `/api/changepoint/trace` | GET | Returns MCMC sampling results for model parameters |
+| `/api/volatility` | GET | Returns daily stochastic volatility estimates |
+
+## Analysis Insights
+
+Our Bayesian analysis identified a significant structural change point in early 2019, closely associated with the **US ending Iran Sanctions Waivers**. Post-event analysis revealed:
+- **Volatility Increase**: Approximately **127%** increase in market volatility following the shift.
+- **Regime Transition**: The market moved from a period of relative stability to one characterized by frequent high-magnitude shocks.
+- **Model Efficacy**: The Bayesian model successfully "priced in" the shock approximately 20 days before the official waiver expiration.
+
+## Dashboard Preview
+![Birhan Energies Dashboard](results/figures/birihandahsboard.png)
 
 ## License
 This project is part of the 10 Academy KAIM Week 11 Challenge.
+
