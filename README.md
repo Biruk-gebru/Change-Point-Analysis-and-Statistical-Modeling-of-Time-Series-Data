@@ -1,30 +1,68 @@
 # Brent Oil Price Change Point Analysis
 
+[![CI Pipeline](https://github.com/Biruk-gebru/Change-Point-Analysis-and-Statistical-Modeling-of-Time-Series-Data/actions/workflows/test.yml/badge.svg)](https://github.com/Biruk-gebru/Change-Point-Analysis-and-Statistical-Modeling-of-Time-Series-Data/actions/workflows/test.yml)
+[![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-312/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Overview
 This project analyzes how major political and economic events affect Brent oil prices using Bayesian change point detection methods. The analysis focuses on identifying key events that have significantly impacted Brent oil prices over the past decade and quantifying their effects using statistical modeling.
+
+## Key Results
+- **Volatility Increase**: Identified ~127% increase in market volatility following the 2019 Iran sanctions waiver expiration
+- **Predictive Power**: Model detected regime shift approximately 20 days before official policy announcement
+- **Production Readiness**: Achieved 100% type hint coverage, 7/7 passing tests, and automated CI/CD pipeline
 
 ## Business Context
 **Client**: Birhan Energies - Leading consultancy firm specializing in data-driven insights for the energy sector
 
 **Objective**: Provide actionable intelligence to help investors, policymakers, and energy companies navigate the complexities of the global energy market.
 
+## Quick Start
+
+### Using Docker (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Biruk-gebru/Change-Point-Analysis-and-Statistical-Modeling-of-Time-Series-Data.git
+cd Change-Point-Analysis-and-Statistical-Modeling-of-Time-Series-Data
+
+# Start all services
+docker-compose up -d
+
+# Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:5000/api
+```
+
+### Manual Setup
+See [Installation & Setup](#installation--setup) section below.
+
 ## Project Structure
 ```
 .
-├── notebooks/          # Jupyter notebooks for analysis
-├── data/
+├── backend/            # Flask REST API (Python)
+│   ├── app/           # Application logic with type hints
+│   │   ├── services.py   # Data service layer
+│   │   └── routes.py     # API endpoints
+│   ├── tests/         # Pytest test suite (7 tests)
+│   ├── Dockerfile     # Backend containerization
+│   └── run.py         # Entry point
+├── frontend/          # React dashboard (JavaScript)
+│   ├── src/           # React components
+│   ├── Dockerfile     # Multi-stage build with Nginx
+│   └── nginx.conf     # Production web server config
+├── data/              # Data storage
 │   ├── raw/           # Raw Brent oil price data
 │   ├── processed/     # Processed and cleaned data
 │   └── events/        # Compiled geopolitical events dataset
+├── notebooks/         # Jupyter notebooks for analysis
 ├── models/            # Saved PyMC models and results
-├── backend/           # Flask API
-│   ├── app/          # Flask application code
-│   └── tests/        # Backend tests
-├── frontend/          # React dashboard
-├── docs/              # Analysis documentation
-├── reports/           # Generated reports (interim & final)
-├── scripts/           # Utility scripts
-└── README.md
+├── docs/              # Technical documentation
+│   └── planning/      # Week 12 capstone planning artifacts
+├── .github/workflows/ # CI/CD pipelines
+│   ├── ci.yml         # Legacy linting workflow
+│   └── test.yml       # Automated testing (NEW)
+├── docker-compose.yml # Full-stack orchestration
+└── DOCKER.md          # Docker deployment guide
 ```
 
 ## Tasks
@@ -153,6 +191,65 @@ Our Bayesian analysis identified a significant structural change point in early 
 ## Dashboard Preview
 ![Birhan Energies Dashboard](results/figures/birhanDash.png)
 
-## License
-This project is part of the 10 Academy KAIM Week 11 Challenge.
+## Week 12 Capstone Improvements
 
+This project was significantly enhanced for the Week 12 Capstone submission with the following production-grade improvements:
+
+### Engineering Excellence
+- **Type Safety**: Added comprehensive type hints to all backend functions (100% coverage)
+- **Structured Logging**: Implemented production-ready logging with proper error tracking
+- **Code Quality**: Refactored services and routes for maintainability and clarity
+
+### Reliability & Testing
+- **Test Suite**: Created 7 comprehensive tests (3 API smoke tests + 4 service unit tests)
+- **Test Coverage**: 100% pass rate with proper fixtures and mocking
+- **CI/CD Pipeline**: Automated testing via GitHub Actions on every push
+
+### Deployment Readiness
+- **Dockerization**: Multi-stage builds for both backend (Flask + Python) and frontend (React + Nginx)
+- **Orchestration**: Docker Compose for single-command full-stack deployment
+- **Production Configuration**: Nginx reverse proxy with gzip compression and static asset caching
+
+See [docs/planning/](docs/planning/) for detailed planning artifacts including Gap Analysis, Implementation Plan, and progress reports.
+
+## Future Improvements
+
+With additional time and resources, the following enhancements would further strengthen this project:
+
+1. **Advanced ML Features**
+   - Implement SHAP-based explanations for non-technical stakeholders
+   - Add multi-variate change point detection (incorporating volume, news sentiment)
+   - Deploy ensemble models for improved forecast accuracy
+
+2. **Production Infrastructure**
+   - Add Redis caching layer for API responses
+   - Implement rate limiting and authentication
+   - Set up monitoring with Prometheus/Grafana
+   - Create automated deployment pipeline (Kubernetes)
+
+3. **User Experience**
+   - Real-time data streaming from financial APIs
+   - Custom alert system for significant regime shifts
+   - Mobile-responsive dashboard enhancements
+   - Export functionality for reports (PDF/Excel)
+
+4. **Data Expansion**
+   - Incorporate additional crude oil benchmarks (WTI, Dubai)
+   - Add macroeconomic indicators (inflation, interest rates)
+   - Integrate social media sentiment analysis
+
+## Author
+
+**Biruk Gebru Jember**  
+Artificial Intelligence Mastery Program - 10 Academy  
+Week 12 Capstone Project
+
+📧 [birukjember2004@gmail.com](mailto:birukjember2004@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/biruk-gebru-jember)  
+💻 [GitHub](https://github.com/Biruk-gebru)
+
+---
+
+## License
+
+This project is part of the 10 Academy KAIM Week 11 Challenge.
