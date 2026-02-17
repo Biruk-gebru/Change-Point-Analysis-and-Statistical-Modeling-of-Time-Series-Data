@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: brent-oil-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - ./results:/app/results
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    networks:
+      - brent-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: brent-oil-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - brent-network
+    restart: unless-stopped
+
+networks:
+  brent-network:
+    driver: bridge
+
+volumes:
+  data:
+  results:
